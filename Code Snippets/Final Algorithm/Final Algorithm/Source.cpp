@@ -30,7 +30,7 @@ int miniDist(int dist[], bool visited[]) // finding minimum distance
 
 void RunAlgorithm(int graph[v][v], int src) // adjacency matrix     // Outputs all of the shortest paths from the source node to every other node.
 {
-    auto start = chrono::system_clock::now();
+    //auto start = chrono::system_clock::now();         // Used to test time taken to execute.
     int dist[v]; // array to store the minimum path length for each node.                           
     bool visited[v];// Boolean array to store visited or unvisited for each node.
 
@@ -56,9 +56,9 @@ void RunAlgorithm(int graph[v][v], int src) // adjacency matrix     // Outputs a
                 dist[k] = dist[m] + graph[m][k];                                                       // Updates the shortest known path from the source to the goal node, Adds previous total pathlength to newly discovered node.
         }
     }
-    auto end = std::chrono::system_clock::now();
-    chrono::duration<double> elapsed_seconds = end - start;
-    time_t end_time = chrono::system_clock::to_time_t(end);
+    //auto end = std::chrono::system_clock::now();
+    //chrono::duration<double> elapsed_seconds = end - start;       // Used for testing time to execute algorithm.
+    //time_t end_time = chrono::system_clock::to_time_t(end);
 
     cout << "Vertex\t\t\tDistance from source\n" << endl;   // Titles for output
     for (int k = 0; k < v; k++)                             // Iterate through saved list.
@@ -72,7 +72,7 @@ void RunAlgorithm(int graph[v][v], int src) // adjacency matrix     // Outputs a
         }
     }
     cout << to_string(amount) << " number of checks performed";
-    cout << "\nfinished computation at " << time(&end_time) << "\nelapsed time: " << elapsed_seconds.count() << "s\n";
+    //cout << "\nfinished computation at " << time(&end_time) << "\nelapsed time: " << elapsed_seconds.count() << "s\n";    // Used for testing time of completion.
 }
 
 int main()
